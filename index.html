@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Login</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* خلفية فضائية */
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+}
+
+/* الكارد */
+.card {
+  position: relative;
+  width: 450px;
+  height: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* glow فضائي */
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  box-shadow:
+    0 0 20px rgba(138, 43, 226, 0.5),
+    0 0 60px rgba(59, 130, 246, 0.3);
+}
+
+/* الخلفية الداخلية */
+.bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(25px);
+  border-radius: 15px;
+  z-index: 2;
+}
+
+/* blob */
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+
+  /* ألوان فضائية */
+  background: linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4);
+
+  filter: blur(40px);
+  opacity: 0.9;
+  z-index: 1;
+  animation: move 6s infinite ease-in-out;
+}
+
+@keyframes move {
+  0%   { transform: translate(-50%, -50%) translate(0,0); }
+  25%  { transform: translate(-50%, -50%) translate(120px,0); }
+  50%  { transform: translate(-50%, -50%) translate(120px,120px); }
+  75%  { transform: translate(-50%, -50%) translate(0,120px); }
+  100% { transform: translate(-50%, -50%) translate(0,0); }
+}
+
+/* الفورم */
+.content {
+  position: relative;
+  z-index: 3;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 32px;
+
+  /* glow للنص */
+  color: #c084fc;
+  text-shadow: 0 0 10px #7c3aed;
+}
+
+.content p {
+  color: #94a3b8;
+}
+
+/* inputs */
+.content input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  outline: none;
+  background: rgba(15, 23, 42, 0.5);
+  color: white;
+  transition: 0.3s;
+}
+
+.content input:focus {
+  border: 1px solid #7c3aed;
+  box-shadow: 0 0 10px #7c3aed;
+}
+
+/* زرار */
+.content button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+
+  /* gradient فضائي */
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.content button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #7c3aed;
+}
+
+/* لينك */
+.content a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-shadow: 0 0 8px #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="bg"></div>
+  <div class="blob"></div>
+
+  <div class="content">
+    <h2>Login</h2>
+    <p>Welcome to space</p>
+
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+    <button>Sign In</button>
+
+    <a href="#">Forgot Password?</a>
+  </div>
+</div>
+
+</body>
+</html>
